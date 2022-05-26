@@ -1,4 +1,5 @@
 # Automata Logger
+Default logger is set to 5 days retention.
 
 ## Packaging
 `python3 -m build`
