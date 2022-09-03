@@ -19,23 +19,6 @@ class ConfigureLoggerTestCase(unittest.TestCase):
         result = logger.get_log_config_file_contents('default-log-config.yaml')
         self.assertIsNotNone(result)
 
-    def test_should_load_default_logging_config(self):
-        ConfigureLogger()
-        log = logging.getLogger('testing')
-        log.info('test 1 2 3')
-        with open('automata.log') as f:
-            log_file_contents = f.read()
-        self.assertIsNotNone(log_file_contents)
-        self.assertIn('- testing - INFO - test 1 2 3', log_file_contents)
-
-    def test_should_load_default_logging_config_without_specific_name(self):
-        ConfigureLogger()
-        logging.info('test again 3 2 1')
-        with open('automata.log') as f:
-            log_file_contents = f.read()
-        self.assertIsNotNone(log_file_contents)
-        self.assertIn('- root - INFO - test again 3 2 1', log_file_contents)
-
     def test_should_use_basic_config_instead_of_config(self):
         ConfigureLogger(log_level=logging.INFO)
         logging.info('testing to console')

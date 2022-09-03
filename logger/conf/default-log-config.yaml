@@ -3,18 +3,15 @@ formatters:
   simple:
     format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 handlers:
-  logfile:
-    class: logging.handlers.TimedRotatingFileHandler
+  stdout:
+    class: logging.StreamHandler
     level: INFO
     formatter: simple
-    filename: automata.log
-    when: midnight
-    backupCount: 5
 loggers:
-  sampleLogger:
+  defaultLogger:
     level: INFO
-    handlers: [logfile]
+    handlers: [stdout]
     propagate: no
 root:
-  level: DEBUG
-  handlers: [logfile]
+  level: INFO
+  handlers: [stdout]
